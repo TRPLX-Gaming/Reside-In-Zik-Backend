@@ -10,9 +10,9 @@ const server = http.createServer((req,res) => {
     const parsedUrl = url.parse(req.url)
     if(parsedUrl.pathname === '/data') {
         res.writeHead(200,{
-           'Content-Type':'text/html'
+           'Content-Type':'application/json'
         })
-        res.end(`<p>${JSON.stringify(data)}</p>`)
+        res.end(JSON.stringify(data))
         console.log(JSON.stringify(data))
     }
 }).listen(3000,()=>{console.log('hosted')})
